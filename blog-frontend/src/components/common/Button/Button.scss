@@ -1,0 +1,114 @@
+@import '../../../styles/utils.scss';
+
+.Button + .Button {
+  margin-left: 0.5rem;
+}
+
+.Button {
+  display: flex-inline;
+  font-weight: 600;
+  padding: 0.5rem 0.875rem;
+  line-height: 0.875rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  &.default {
+    background: #845ef7;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background ease-in 0.125s;
+    &:hover {
+      background: #9775fa;
+    }
+    &:active {
+      background: #845ef7;
+    }
+    &.cancel {
+      background: #495057;
+      color: white;
+      &:hover {
+        background: #868e96;
+      }
+      &:active {
+        background: #495057;
+      }
+    }
+  }
+  &.gray {
+    border-radius: 4px;
+    background: #343a40;
+    color: white;
+    &:hover {
+      background: #495057;
+    }
+    &:active {
+      background: #212529;
+    }
+  }
+  &.outline {
+    border-radius: 4px;
+    border: 1px solid #495057;
+    color: #495057;
+    background: white;
+    font-weight: 400;
+    transition: all ease-in 0.125s;
+    &:hover {
+      border: 1px solid #9775fa;
+      color: #845ef7;
+      cursor: pointer;
+    }
+    &.red {
+      border: 1px solid #e03131;
+      color: #e03131;
+      font-weight: 500;
+      &:hover {
+        color: white;
+        background: #fa5252;
+        border: 1px solid #fa5252;
+      }
+      &:active {
+        background: #f03e3e;
+        border: 1px solid #f03e3e;
+      }
+    }
+  }
+  &.paper {
+ //   @include common-button-style();
+    @include material-shadow(2, 0.3);
+    background: white;
+    transition: all 0.1s ease-in;
+    color: #343a40;
+    &.violetFont {
+      color: #845ef7;
+    }
+    &:hover {
+      background: #f8f9fa;
+      @include material-shadow(2, 0.75);
+    }
+  }
+  &.fullWidth {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  &.fullWidth + &.fullWidth {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  &.large {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+  &.transparent {
+    color: #343a40;
+    border-radius: 4px;
+    &:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    &:active {
+      background: rgba(0, 0, 0, 0.07);
+    }
+  }
+}

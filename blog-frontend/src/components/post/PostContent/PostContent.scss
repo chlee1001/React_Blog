@@ -1,0 +1,125 @@
+@import '../../../styles/utils.scss';
+
+.PostContent {
+  &.placeholder {
+    .fake-img {
+      width: 100%;
+      height: 35vh;
+      background: #f1f3f5;
+      animation: Blink 0.5s ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+    .gray-block {
+      background: #f1f3f5;
+      height: 1.85rem;
+      animation: Blink 0.5s ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      @include media("<medium") {
+        height: 1.25rem;
+      }
+    }
+    .gray-block + .gray-block {
+      margin-top: 0.5rem;
+    }
+    .line-breaker {
+      height: 3rem;
+      @include media("<medium") {
+        height: 2rem;
+      }
+    }
+  }
+  .post-thumbnail {
+    @include media("<medium") {
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    margin-bottom: 3rem;
+  }
+  .contents {
+    pre {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      @include media("<medium") {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        border-left: none;
+        border-right: none;
+      }
+      /*
+      margin-left: calc(-1 * (100vw - 768px)/2);
+      margin-right: calc(-1 * (100vw - 768px)/2);
+      padding-left: calc((100vw - 768px)/2);
+      padding-right: calc((100vw - 768px - 4rem)/2);
+      */
+    }
+    @include media("<medium") {
+      .MarkdownRender {
+        font-size: 1rem;
+      }
+    }
+    /*
+
+    */
+  }
+}
+
+/*
+.PostContent {
+  margin-top: 10rem;
+  @include media("<large") {
+    margin-top: 7.5rem;
+  }
+  background: #f4f6f8;
+  svg {
+    display: block;
+    width: 100%;
+    height: 15rem;
+  }
+  > .wrapper {
+    padding-bottom: 4rem;
+  }
+  .floating-box {
+    width: 980px;
+    @include media("<980px") {
+      width: 100%;
+    }
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    margin-top: -22rem;
+    background: white;
+    box-shadow: 0px 20px 150px #d6dee4;
+    min-height: 768px;
+    img {
+      display: block;
+      width: 100%;
+    }
+    .contents {
+      padding: 4rem;
+      @include media("<large") {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .MarkdownRender {
+        @include media("<large") {
+          font-size: 1rem;
+        }
+        @include media("<medium") {
+          font-size: 0.875rem;
+        }
+      }
+    }
+    
+
+
+
+    
+  }
+}
+*/

@@ -1,0 +1,22 @@
+@import '../../../styles/utils.scss';
+
+.PostTags {
+  margin: -0.375rem;
+  margin-top: 5rem;
+  a {
+    margin: 0.375rem;
+    display: inline-flex;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 0.75rem;
+    border-radius: 4px;
+    &:hover {
+      cursor: pointer;
+      background: #f1f3f5;
+    }
+  }
+}
