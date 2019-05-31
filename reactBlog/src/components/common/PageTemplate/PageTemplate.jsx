@@ -9,6 +9,31 @@ const PageTemplate = () => {
             <Header />
             <SplashImage />
             <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/><PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/><PostList/>
+            <PostList/>            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/><PostList/>
+            <PostList/>
+            <PostList/>
+            <PostList/><PostList/>
+            <PostList/>
+
         </div>
     );
 };
