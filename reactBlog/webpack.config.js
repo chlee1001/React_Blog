@@ -33,7 +33,7 @@ module.exports = {
         loaders: ['babel-loader'],
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         loader: 'style-loader!css-loader!sass-loader',
       },
       {
@@ -43,6 +43,10 @@ module.exports = {
           limit: 10000,
         },
       },
+      {
+        test: /\.(svg|eot|ttf|woff|gif|png)$/,
+        loader: 'file-loader'
+      }
     ],
   },
   resolve: {
