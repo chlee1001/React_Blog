@@ -60,14 +60,21 @@ const useStyles = makeStyles(theme => ({
   },
   inputRoot: {
     color: 'inherit',
+    width: '100%'
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
+    paddingTop: theme.spacing,
+    paddingRight: theme.spacing,
+    paddingBottom: theme.spacing,
+    paddingLeft: theme.spacing(10),
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200,
-    },
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200
+      }
+    }
   },
   sectionDesktop: {
     display: 'none',
@@ -108,19 +115,19 @@ function Header(props) {
               <MenuItem>
                 <p>Life</p>
               </MenuItem>
-      
+
               <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-            />
-          </div>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                />
+              </div>
             </div>
 
           </Toolbar>

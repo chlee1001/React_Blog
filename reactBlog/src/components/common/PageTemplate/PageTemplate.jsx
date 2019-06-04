@@ -1,39 +1,14 @@
 import React from 'react';
 import Header from '../Header';
 import SplashImage from '../MainSplash';
-import PostList from '../PostList';
+import PostView from '../../../containers/post/PostContainer';
 
 const PageTemplate = () => {
     return (
         <div>
             <Header />
             <SplashImage />
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/><PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/><PostList/>
-            <PostList/>            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/><PostList/>
-            <PostList/>
-            <PostList/>
-            <PostList/><PostList/>
-            <PostList/>
-
+            <PostView/>
         </div>
     );
 };
