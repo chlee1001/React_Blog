@@ -11,7 +11,7 @@ class PostContainer extends Component {
     }
 
     componentWillMount() {
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 20; i++) {
             const user = {
                 key: Faker.random.uuid(),
                 name: Faker.internet.userName(),
@@ -28,7 +28,7 @@ class PostContainer extends Component {
     render() {
         return (
             <div>
-                {this.state.users.map(users => <PostViewer id={users.key} post={users} />)}
+                <PostViewer post={this.state.users}/>
             </div>
 
         )
