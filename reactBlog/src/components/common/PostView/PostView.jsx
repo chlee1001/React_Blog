@@ -53,9 +53,14 @@ const PostView = ({ post }) => {
     <div className={classes.root}>
       <Grid container spacing={1} className={classes.cardGrid}>
         {post.map((post) => {
-          return (
-            <Grid item key={post.key} container item xs={12} md={4} >
+          return ( // post 총 개수에 상관없이 9개만 띄우기
+            post.id < 9 && <Grid item key={post.key} container  item xs={12} md={4} >
               <Card className={classes.card}>
+                {!post.thumbnail && <CardMedia // thumbnail 유무 확인
+                  className={classes.media}
+                  image="/static/images/cards/paella.jpg"
+                  title="Paella dish"
+                />}
                 <CardHeader
                   avatar={
                     <Avatar alt="Avatar" src={post.avatar} className={classes.avatar}>
@@ -64,16 +69,11 @@ const PostView = ({ post }) => {
                   title={post.name}
                   subheader={post.email}//{fromNow("released_at")}
                 />
-                {!post.thumbnail && <CardMedia // thumbnail 유무 확인
-                  className={classes.media}
-                  image="/static/images/cards/paella.jpg"
-                  title="Paella dish"
-                />}
                 <CardContent>
                   <Typography variant="body2" color="textSecondary" component="p">
                     This impressive paella is a perfect party dish and a fun meal to cook together with your
                     guests. Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
+   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
                   <IconButton aria-label="Add to favorites">
@@ -87,9 +87,14 @@ const PostView = ({ post }) => {
             </Grid>
           )
         })}
+        }
+
+
       </Grid>
     </div>
   );
 };
 
 export default PostView;
+
+//https://reactgo.com/material-ui-react-tutorial/

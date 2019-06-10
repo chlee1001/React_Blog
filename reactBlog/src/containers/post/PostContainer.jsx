@@ -13,6 +13,7 @@ class PostContainer extends Component {
     componentWillMount() {
         for (let i = 0; i < 20; i++) {
             const user = {
+                id: i,
                 key: Faker.random.uuid(),
                 name: Faker.internet.userName(),
                 email: Faker.internet.email(),

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 import Header from '../Header';
 import SplashImage from '../MainSplash';
 import PostView from '../../../containers/post/PostContainer';

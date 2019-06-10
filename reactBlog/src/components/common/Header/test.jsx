@@ -1,42 +1,42 @@
+/* 모바일 일 때 만들기 _19.05.31 */
 import React from 'react';
-import PropTypes from 'prop-types';
-/* Scroll Hide */
-import CssBaseline from '@material-ui/core/CssBaseline';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Slide from '@material-ui/core/Slide';
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
-
-
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import Slide from '@material-ui/core/Slide';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import MenuIcon from '@material-ui/icons/Menu';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from'./theme';
+/* Search */
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import InputBase from '@material-ui/core/InputBase';
 
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
   },
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+  },
+  toolbar: {
+    //alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: '0 8px',
   },
   search: {
     position: 'relative',
@@ -64,22 +64,27 @@ const useStyles = makeStyles(theme => ({
   },
   inputRoot: {
     color: 'inherit',
+    width: '100%'
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
+    paddingTop: theme.spacing,
+    paddingRight: theme.spacing,
+    paddingBottom: theme.spacing,
+    paddingLeft: theme.spacing(10),
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       width: 120,
       '&:focus': {
-        width: 200,
-      },
-    },
+        width: 200
+      }
+    }
   },
   sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
+
     },
   },
   sectionMobile: {
@@ -90,125 +95,72 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Header(props) {
+
+function test(props) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  function handleProfileMenuOpen(event) {
-    setAnchorEl(event.currentTarget);
-  }
-
-  function handleMobileMenuClose() {
-    setMobileMoreAnchorEl(null);
-  }
-
-  function handleMenuClose() {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  }
-
-  function handleMobileMenuOpen(event) {
-    setMobileMoreAnchorEl(event.currentTarget);
-  }
-
-
-
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton color="inherit">
-          <MailIcon />
-        </IconButton>
-        <p>Home</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <NotificationsIcon />
-        </IconButton>
-        <p>About</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <MailIcon />
-        </IconButton>
-        <p>Tech</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit">
-          <NotificationsIcon />
-        </IconButton>
-        <p>Life</p>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
-    <div className={classes.grow}>
-      <CssBaseline />
+    <React.Fragment>
       <HideOnScroll {...props}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography className={classes.title} variant="h6" noWrap>
-              Material-UI
-          </Typography>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-              />
-            </div>
-            <div className={classes.grow} />
+      <ThemeProvider theme={theme}>
+        <AppBar color={"primary"}>
+          <Toolbar className={classes.toolbar}>
+            <Typography variant="title"
+              color="inherit"
+            >
+              My header
+           </Typography>
             <div className={classes.sectionDesktop}>
-              <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <IconButton color="inherit">
-                <Badge badgeContent={17} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                edge="end"
-                aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
+              <List component="nav">
+                <ListItem component="div">
+                  <ListItemText inset>
+                    <Typography color="inherit" variant="title">
+                      Home
+               </Typography>
+                  </ListItemText>
+
+
+                  <ListItemText inset>
+                    <Typography color="inherit" variant="title">
+                      Posts
+               </Typography>
+                  </ListItemText>
+
+
+                  <ListItemText inset>
+                    <Typography color="inherit" variant="title">
+                      Contact
+               </Typography>
+                  </ListItemText>
+                </ListItem >
+
+              </List>
+
+              <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                />
+              </div>
             </div>
-            <div className={classes.sectionMobile}>
-              <IconButton aria-haspopup="true" onClick={handleMobileMenuOpen} color="inherit">
-                <MoreIcon />
-              </IconButton>
-            </div>
+
           </Toolbar>
         </AppBar>
+        </ThemeProvider>
       </HideOnScroll>
-      {renderMobileMenu}
-
-      {}
-    </div>
+      <Toolbar />
+      
+    </React.Fragment>
   );
 }
+
+
+
 function HideOnScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -230,4 +182,4 @@ HideOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
-export default Header;
+export default test;
